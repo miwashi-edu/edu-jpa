@@ -1,47 +1,25 @@
 # edu-jpa
 
-> Vi utgår ifrån en fungerande Spring Boot applikation och lägger till JPA konfiguration mot Chinooks databas.
+> Vi utgår ifrån en fungerande Spring Boot applikation.
 
 ## Förberedelser
 
 ```bash
-docker start iths-mysql
-docker exec -i iths-mysql mysql -uroot -proot < chinook.sql
-docker exec -i iths-mysql mysql -uroot -proot <<< "GRANT ALL ON Chinook.* TO 'iths'@'%'"
-
-git clone 
+cd ~
+cd ws
+git clone https://github.com/miwashi-edu/edu-jpa.git
+cd edu-jpa
+gradle bootRun
 ```
 
-## Låna kod
-
-### ./app/build.gradle
-```groovy
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.30'
-}
-```
+## Surfa
 
 ```
-desc Artist;
-+----------+--------------+------+-----+---------+-------+
-| Field    | Type         | Null | Key | Default | Extra |
-+----------+--------------+------+-----+---------+-------+
-| ArtistId | int          | NO   | PRI | NULL    |       |
-| Name     | varchar(120) | YES  |     | NULL    |       |
-+----------+--------------+------+-----+---------+-------+
-
-desc Album;
-+----------+--------------+------+-----+---------+-------+
-| Field    | Type         | Null | Key | Default | Extra |
-+----------+--------------+------+-----+---------+-------+
-| AlbumId  | int          | NO   | PRI | NULL    |       |
-| Title    | varchar(160) | NO   |     | NULL    |       |
-| ArtistId | int          | NO   | MUL | NULL    |       |
-+----------+--------------+------+-----+---------+-------+
+http://localhost:8080
 ```
 
 ## Testa
+
 ```bash
 // CREATE
 curl --request POST --url http://localhost:8080/api/artist --header 'Content-Type: application/json' --data '{"id": "1", "name": "Nisse"}'
