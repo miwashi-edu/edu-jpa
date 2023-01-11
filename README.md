@@ -1,15 +1,44 @@
 # edu-jpa
 
-> Vi utgår ifrån en fungerande Spring Boot applikation.
+> Vi lägger till JPA mappning till Album.
 
-## Förberedelser
+> Glöm inte lägga till setters/getters.
 
-```bash
-cd ~
-cd ws
-git clone https://github.com/miwashi-edu/edu-jpa.git
-cd edu-jpa
-gradle bootRun
+## Table
+
+```
+desc Album;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| AlbumId  | int          | NO   | PRI | NULL    |       |
+| Title    | varchar(160) | NO   |     | NULL    |       |
+| ArtistId | int          | NO   | MUL | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+```
+
+## se.iths.persistency.model.Album
+
+```java
+@Entity
+@Table(name = "Album")
+public class Album {
+    @Id
+    @Column(name = "AlbumId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    
+    @Column(name = "Title")
+    private String title;
+}
+```
+
+## Tillägg till se.iths.persistency.model.Artist
+
+```java
+@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+@JoinColumn(name = "ArtistID")
+private Collection<Album> albums = new ArrayList<>();
 ```
 
 ## Surfa
