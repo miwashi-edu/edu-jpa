@@ -58,6 +58,37 @@ public ResponseEntity<Artist[]> findAllArtists() {
 }
 ```
 
+## ./app/src/main/resources/templates/index.html
+
+> Vi kommenterar bort album för nu!
+
+```html
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+        <link rel="stylesheet" href="/index.css">
+    </head>
+    <body>
+        <h1 th:text="${title}" />
+        <div th:each="artist : ${artists}">
+            <h2 th:text="${artist.name}" />
+            <blockquote>
+                <h3 th:text="${subtitle}" />
+                <!--
+                <div th:each="album : ${artist.albums}">
+                    <span th:text="${album.title}" />
+                </div>
+                -->
+            </blockquote>
+            <p></p>
+        </div>
+
+        <script src='/index.js'/>
+    </body>
+</html>
+```
+
 ## Surfa
 
 ```
