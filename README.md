@@ -42,6 +42,9 @@ spring.datasource.password=iths
 spring.datasource.url=jdbc:mysql://localhost:3306/Chinook?createDatabaseIfNotExist=true
 
 spring.data.jpa.repositories.enabled=true
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+#spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
 se.iths.backend.url=http://localhost:8080
 ```
@@ -59,5 +62,7 @@ logging.level.org.springframework.jdbc.core.JdbcTemplate=DEBUG
 logging.level.org.springframework.jdbc.core.StatementCreatorUtils=TRACE
 
 spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.generate-ddl=true
 ```
 
