@@ -14,7 +14,7 @@ desc Artist;
 +----------+--------------+------+-----+---------+-------+
 ```
 
-## Artist
+## se.iths.persistency.model.Artist
 
 ```java
 
@@ -32,7 +32,7 @@ public class Artist {
 }
 ```
 
-## Repository
+## se.iths.persistency.ArtistRepository
 
 ```java
 public interface ArtistRepository extends CrudRepository<Artist, Long> {
@@ -40,7 +40,7 @@ public interface ArtistRepository extends CrudRepository<Artist, Long> {
 }
 ```
 
-## ApiController
+## se.iths.controller.ApiController
 
 ```java
 @GetMapping("/artist")
