@@ -2,6 +2,8 @@
 
 > Vi lägger till JPA mappning till Artist.
 
+> Glöm inte lägga till setters/getters.
+
 ## Table
 
 ```
