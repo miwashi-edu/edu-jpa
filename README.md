@@ -46,6 +46,8 @@ spring.data.jpa.repositories.enabled=true
 #spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL57Dialect
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
 
+spring.jpa.hibernate.naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
 se.iths.backend.url=http://localhost:8080
 ```
 
